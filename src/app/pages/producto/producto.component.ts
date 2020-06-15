@@ -20,20 +20,15 @@ export class ProductoComponent implements OnInit {
 
   guardar( form: NgForm ){
     if (form.invalid) {
-      console.log('Formulario on válido');
       return;
     }
 
     if (this.producto._id) {
       this.productosService.actualizarProducto(this.producto)
-        .subscribe( resp => {
-          console.log(resp);
-        });
+        .subscribe();
     } else {
       this.productosService.crearProducto(this.producto)
-        .subscribe( resp => {
-          console.log(resp);
-        });
+        .subscribe();
     }
   }
 

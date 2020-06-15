@@ -20,20 +20,15 @@ export class ClienteComponent implements OnInit {
 
   guardar( form: NgForm ){
     if (form.invalid) {
-      console.log('Formulario on válido');
       return;
     }
 
     if (this.cliente._id) {
       this.clienteService.actualizarCliente(this.cliente)
-        .subscribe( resp => {
-          console.log(resp);
-        });
+        .subscribe();
     } else {
       this.clienteService.crearCliente(this.cliente)
-        .subscribe( resp => {
-          console.log(resp);
-        });
+        .subscribe();
     }
   }
 

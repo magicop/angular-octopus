@@ -25,7 +25,6 @@ export class ProductosComponent implements OnInit {
     this.productosService.getProductos()
         .subscribe( (resp: ProductoModel[]) => {
           this.productos = resp;
-          console.log(this.productos);
           this.cargando = false;
           // console.log(this.productos[0].id);
         });

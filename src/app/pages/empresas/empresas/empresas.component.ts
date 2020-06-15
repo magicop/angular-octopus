@@ -26,7 +26,6 @@ export class EmpresasComponent implements OnInit {
     this.empresasService.getEmpresas()
         .subscribe( (resp: EmpresaModel[]) => {
           this.empresas = resp;
-          console.log(this.empresas);
           this.cargando = false;
           // console.log(this.productos[0].id);
         });

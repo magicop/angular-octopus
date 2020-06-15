@@ -26,7 +26,6 @@ export class ClientesComponent implements OnInit {
     this.clientesService.getClientes()
         .subscribe( (resp: ClienteModel[]) => {
           this.clientes = resp;
-          console.log(this.clientes);
           this.cargando = false;
           // console.log(this.productos[0].id);
         });
