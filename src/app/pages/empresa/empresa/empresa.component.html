@@ -1,0 +1,56 @@
+<div class="container">
+    <br>
+    <h1>Modificar datos empresa</h1>
+    <br>
+
+    <div class="row text-right">
+        <div class="col">
+            <button class="btn btn-danger" routerLink="/empresas">
+            <i class="fa fa-arrow-left"></i>
+             Regresar
+        </button>
+        </div>
+    </div>
+
+    <div class="row animated fadeIn faster">
+        <div class="col">
+            <form ngNativeValidate #f="ngForm" (ngSubmit)="modificar( f )">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Ingrese nombre" [(ngModel)]="empresa[0].nombre" name="nombre">
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input type="text" class="form-control" placeholder="Ingrese dirección" [(ngModel)]="empresa[0].direccion" name="direccion">
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" placeholder="Ingrese teléfono" [(ngModel)]="empresa[0].telefono" name="telefono">
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono 2</label>
+                    <input type="text" class="form-control" placeholder="Ingrese teléfono 2" [(ngModel)]="empresa[0].telefono2" name="telefono2">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" placeholder="Ingrese email" [(ngModel)]="empresa[0].email" name="email">
+                </div>
+
+                <hr>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-25">
+                        <i class="fa fa-save"></i>
+                        Actualizar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
