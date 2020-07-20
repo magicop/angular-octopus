@@ -1,0 +1,70 @@
+<div class="container">
+    <br>
+    <h1>Listado de Clientes</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col text-right">
+            <button routerLink="/cliente/nuevo" class="btn btn-primary">
+            <i class="fa fa-plus"></i> 
+            Agregar
+        </button>
+        </div>
+    </div>
+
+    <table *ngIf="!cargando && clientes.length > 0" class="table mt-3 animated fadeIn faster">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Url</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Estado</th>
+                <th scope="col">***</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <th scope="row">{{ cliente.nombre }}</th>
+                <td>{{ cliente.url }}</td>
+                <td>
+                    <img [src]="cliente.img | imagen: 'clientes'" class="w150">
+                </td>
+                <td>
+                    <label *ngIf="cliente.activo" class="badge badge-success">Activado</label>
+                    <label *ngIf="!cliente.activo" class="badge badge-danger">Desactivado</label>
+                </td>
+
+                <td>
+                    <button class="btn btn-info mr-1" [routerLink]="['/cliente', cliente._id]" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <i class="fa fa-pen"></i>
+                    </button>
+
+                    <button *ngIf="!cliente.activo" class="btn btn-success mr-1" (click)="activarCliente(cliente)"><i class="fa fa-pen"></i>
+                    </button>
+
+                    <button *ngIf="cliente.activo" class="btn btn-danger mr-1" (click)="borrarCliente(cliente)"><i class="fa fa-pen"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!cargando && clientes.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">No hay registros</h4>
+        <p>
+            <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+    </div>
+
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            Espere por favor
+        </p>
+    </div>
+</div>

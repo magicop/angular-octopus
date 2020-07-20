@@ -1,0 +1,111 @@
+<div class="container">
+    <br>
+    <h1>Datos de empresa</h1>
+    <hr>
+
+    <!-- <div class="row">
+        <div class="col text-right">
+            <button routerLink="/empresa/nuevo" class="btn btn-primary">
+            <i class="fa fa-plus"></i> 
+            Agregar
+        </button>
+        </div>
+    </div> -->
+
+    <div class="row animated fadeIn faster">
+        <div class="col text-center">
+            <button routerLink="/empresa/modificar" class="btn btn-primary">
+            <i class="fa fa-plus"></i> 
+            Modificar
+        </button>
+        </div>
+    </div>
+
+    <div class="container animated fadeIn faster" *ngFor="let empresa of empresas">
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input [(ngModel)]="empresa.nombre" type="text" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Direccion</label>
+            <input [(ngModel)]="empresa.direccion" type="text" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono de contacto 1</label>
+            <input [(ngModel)]="empresa.telefono" type="text" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono de contacto 2</label>
+            <input [(ngModel)]="empresa.telefono2" type="text" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input [(ngModel)]="empresa.email" type="text" class="form-control" readonly>
+        </div>
+    </div>
+
+
+
+    <!-- <table *ngIf="!cargando && empresas.length > 0" class="table mt-3 animated fadeIn faster">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Teléfono 2</th>
+                <th scope="col">Email</th>
+                <th scope="col">Estado</th>
+                <th scope="col">***</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empresa of empresas">
+                <th scope="row">{{ empresa.nombre }}</th>
+                <td>{{ empresa.direccion }}</td>
+                <td>{{ empresa.telefono }}</td>
+                <td>{{ empresa.telefono2 }}</td>
+                <td>{{ empresa.email }}</td>
+                <td>
+                    <label *ngIf="empresa.activo" class="badge badge-success">Activado</label>
+                    <label *ngIf="!empresa.activo" class="badge badge-danger">Desactivado</label>
+                </td>
+
+                <td>
+                    <button class="btn btn-info mr-1" [routerLink]="['/empresa', empresa._id]">
+                        <i class="fa fa-pen"></i>
+                    </button>
+
+                    <button *ngIf="!empresa.activo" class="btn btn-success mr-1" (click)="activarEmpresa(empresa)"><i class="fa fa-pen"></i>
+                    </button>
+
+                    <button *ngIf="empresa.activo" class="btn btn-danger mr-1" (click)="borrarEmpresa(empresa)"><i class="fa fa-pen"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!cargando && empresas.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">No hay registros</h4>
+        <p>
+            <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+    </div>
+
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            Espere por favor
+        </p>
+    </div> -->
+</div>
